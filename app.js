@@ -1,8 +1,8 @@
 const express = require( 'express' );
 const app = express();
 
-const nunjucks = require('nunjucks')
-
+const nunjucks = require('nunjucks');
+const routes = require('./routes');
 
 // var nRender = nunjucks.render('index.html');
 //need object that has title and person.name
@@ -47,8 +47,6 @@ app.use('/news', function (req, res, next) {
 
 
 app.get('/', function(req, res, next) {
-  // res.send(indexCode)
-
   res.render( 'index', {title: 'Hall of Fame', people: people} );
 
 })
