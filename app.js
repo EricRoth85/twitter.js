@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const nunjucks = require('nunjucks');
 const routes = require('./routes');
+const bodyParser = require('body-parser')
 
 // var nRender = nunjucks.render('index.html');
 //need object that has title and person.name
@@ -30,8 +31,10 @@ nunjucks.configure('views', {noCache: true});
 //   if(err) console.log(err)
 // });
 
+app.use(bodyParser.urlencoded({extended: true}))
 app.use('/', routes);
 app.use(express.static('public'))
+
 
 
 // path.join(__dirname, "../public", "./public/stylesheets/style.css")
