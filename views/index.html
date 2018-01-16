@@ -1,24 +1,33 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block content %}
 
-{% block content %}
-
-  <div class="page-header">
-    <h1>Welcome to Twitter.js!</h1>
+<div class="page-header">
+  <h1>Welcome to Twitter.js!</h1>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg">
+    <br>
+    <b>Your Name</b>
+    <br> 100 followers
   </div>
-  <div class="row">
-    <div class="col-md-3">
-      <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
-      <b>Your Name</b><br>
-      100 followers
-    </div>
-    <div class="col-md-9">
+  <div class="col-md-9">
 
-      <!-- display tweets here -->
-      {% for tweet in tweets %}
-        <li>{{tweet.content}}</li>
-      {% endfor %}
+    <!-- display tweets here -->
+    {% for tweet in tweets %}
 
+    <div class="row" style="height: auto;">
+      <div class="col-sm-1">
+        <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg">
+      </div>
+      <div class="col-sm-8">
+        <strong>
+          <a href="/users/{{tweet.name}}">{{tweet.name}}</a></strong> -
+{{tweet.content}}
+      </div>
     </div>
+    {% endfor %}
+
   </div>
+</div>
 
 {% endblock %}
