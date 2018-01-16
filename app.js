@@ -1,6 +1,6 @@
 const express = require( 'express' );
 const app = express();
-
+const path = require('path');
 const nunjucks = require('nunjucks');
 const routes = require('./routes');
 
@@ -31,6 +31,11 @@ nunjucks.configure('views', {noCache: true});
 // });
 
 app.use('/', routes);
+app.get("/stylesheets/style.css", function (req, res, next) {
+  res.sendFile(path.resolve('public', 'stylesheets', 'style.css'))
+})
+console.log(path.resolve('public', 'stylesheets', 'style.css'))
+// path.join(__dirname, "../public", "./public/stylesheets/style.css")
 
 // app.use('/', function (req, res, next) {
 //   console.log(req.method, req.path, res.statusCode)
