@@ -30,20 +30,22 @@ nunjucks.configure('views', {noCache: true});
 //   if(err) console.log(err)
 // });
 
-app.use('/', function (req, res, next) {
-  console.log(req.method, req.path, res.statusCode)
+app.use('/', routes);
 
-  next();
-  // do your logging here
-  // call `next`, or else your app will be a black hole — receiving requests but never properly responding
-})
+// app.use('/', function (req, res, next) {
+//   console.log(req.method, req.path, res.statusCode)
 
-app.use('/news', function (req, res, next) {
-  console.log("request from /news")
-  // console.log(req.method, req.path, res.statusCode)
+//   next();
+//   // do your logging here
+//   // call `next`, or else your app will be a black hole — receiving requests but never properly responding
+// })
 
-  next();
-})
+// app.use('/news', function (req, res, next) {
+//   console.log("request from /news")
+//   // console.log(req.method, req.path, res.statusCode)
+
+//   next();
+// })
 
 
 app.get('/', function(req, res, next) {

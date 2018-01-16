@@ -60,7 +60,6 @@ const getFakeTweet = function() {
 //   module.exports.add( getFakeName(), getFakeTweet() );
 // }
 
-console.log(find({name: 'Dan Ecma'}))
-
+// console.log(find({name: 'Dan Ecma'}))
 
 // console.log(data)
