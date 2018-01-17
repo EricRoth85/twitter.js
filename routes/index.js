@@ -24,6 +24,7 @@ module.exports = function(io) {
     const name = req.body.name;
     const text = req.body.text;
     tweetBank.add(name, text);
+    io.sockets.emit('newTweet', text);
     res.redirect('/');
   });
 
@@ -34,7 +35,6 @@ module.exports = function(io) {
     res.render('index', { tweets: userData });
   });
 
-  io.sockets.emit('newTweet', { text: 'test' });
   //showForm: true
   // req.body.name and req.body.content
   // module.exports = router;
